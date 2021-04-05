@@ -1,0 +1,17 @@
+C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\obj\Debug\NoSpotifyADS_FORMS.csprojAssemblyReference.cache
+C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\obj\Debug\NoSpotifyADS_FORMS.Form1.resources
+C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\obj\Debug\NoSpotifyADS_FORMS.Properties.Resources.resources
+C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\obj\Debug\NoSpotifyADS_FORMS.csproj.GenerateResource.cache
+C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\obj\Debug\NoSpotifyADS_FORMS.csproj.CoreCompileInputs.cache
+C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\bin\Debug\NoSpotifyADS_FORMS.exe.config
+C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\bin\Debug\NoSpotifyADS_FORMS.exe
+C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\bin\Debug\NoSpotifyADS_FORMS.pdb
+C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\bin\Debug\NHotkey.dll
+C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\bin\Debug\NHotkey.WindowsForms.dll
+C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\bin\Debug\WindowsInput.dll
+C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\bin\Debug\NHotkey.pdb
+C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\bin\Debug\NHotkey.WindowsForms.pdb
+C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\bin\Debug\WindowsInput.xml
+C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\obj\Debug\NoSpotifyADS_FORMS.csproj.CopyComplete
+C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\obj\Debug\NoSpotifyADS_FORMS.exe
+C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\obj\Debug\NoSpotifyADS_FORMS.pdb
