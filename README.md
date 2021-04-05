@@ -7,7 +7,7 @@ NOTE: v1.1
 
 added disableHotkey option
 
-added autostartOption
+added autostart option
 
 
 
