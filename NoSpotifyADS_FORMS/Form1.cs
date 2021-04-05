@@ -3,7 +3,8 @@ using WindowsInput.Native;
 using WindowsInput;
 using System;
 using System.Diagnostics;
-
+using Microsoft.Win32;
+using System.IO;
 
 namespace NoSpotifyADS_FORMS
 {
@@ -18,7 +19,8 @@ namespace NoSpotifyADS_FORMS
             InitializeComponent();
             
             NHotkey.WindowsForms.HotkeyManager.Current.AddOrReplace("CLOSE", Keys.F7, Start_stop); //standard hotkey F7
-           
+
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -95,6 +97,45 @@ namespace NoSpotifyADS_FORMS
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public static void AutoStartReg(bool an_aus)
+        {
+            string run = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
+            string AppName = "NoSpotifyADS";
+            
+
+                RegistryKey startKey = Registry.LocalMachine.OpenSubKey(run, true);
+            if (an_aus == true)
+            {
+                startKey.SetValue(AppName, Application.ExecutablePath.ToString());
+            }
+            else
+            {
+                startKey.DeleteValue(AppName);
+            }
+            
+
+        }
+
+        private void testToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+            if (testToolStripMenuItem1.Checked == false)
+            {
+                AutoStartReg(true);
+                testToolStripMenuItem1.Checked = true;
+            }
+            else
+            {
+                AutoStartReg(false);
+                testToolStripMenuItem1.Checked = false;
+            }
+        }
+
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
