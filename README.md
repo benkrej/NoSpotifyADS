@@ -5,10 +5,12 @@ Download: https://github.com/benkrej/NoSpotifyADS/releases/download/v1.1/Release
 ----
 NOTE: v1.1
 added disableHotkey option
+
 added autostartOption
 
 
 
 functions in future versions:
+
 - save hotkey after restart 
 
