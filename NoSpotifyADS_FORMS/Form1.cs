@@ -12,8 +12,9 @@ namespace NoSpotifyADS_FORMS
 
     public partial class Form1 : Form
     {
-        
-        
+
+        bool hotkey_enabled = true;
+        Keys global_hotkey;
         public Form1()
         {
             InitializeComponent();
@@ -89,11 +90,15 @@ namespace NoSpotifyADS_FORMS
         {
             if (button1.Text == "Enter Key")
             {
-                Keys hotkey = e.KeyCode;
-                label2.Text = "Current Hotkey: " + (char)hotkey; //change label to the current hotkey
-                NHotkey.WindowsForms.HotkeyManager.Current.AddOrReplace("CLOSE", hotkey, Start_stop); //Replace hotkey with new one
+                global_hotkey = e.KeyCode;
+                label2.Text = "Current Hotkey: " + (char)global_hotkey; //change label to the current hotkey
+                if (hotkey_enabled == true) //if hotkey is enabled replace old hotkey with new one
+                {
+                    NHotkey.WindowsForms.HotkeyManager.Current.AddOrReplace("CLOSE", global_hotkey, Start_stop); //Replace hotkey with new one
+                }
                 button1.Text = "Press to change Hotkey!"; //change button text back 
             }
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -101,7 +106,7 @@ namespace NoSpotifyADS_FORMS
 
         }
 
-        public static void AutoStartReg(bool an_aus)
+        public static void AutoStartReg(bool an_aus) //set registry entry for autostart
         {
             string run = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
             string AppName = "NoSpotifyADS";
@@ -137,6 +142,25 @@ namespace NoSpotifyADS_FORMS
 
         private void testToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void deactivateHotkeyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (deactivateHotkeyToolStripMenuItem.Checked == true) //if hotkey is disabled and click on deactivaeHotkey
+
+            {
+                deactivateHotkeyToolStripMenuItem.Checked = false; //check deactivateHotkey checkbox
+                hotkey_enabled = true;
+                NHotkey.WindowsForms.HotkeyManager.Current.AddOrReplace("CLOSE", global_hotkey, Start_stop);
+
+            }
+            else //if hotkey is enabled and click on deactivaeHotkey
+            {
+                deactivateHotkeyToolStripMenuItem.Checked = true; //uncheck deactivateHotkey checkbox
+                hotkey_enabled = false;
+                NHotkey.WindowsForms.HotkeyManager.Current.AddOrReplace("CLOSE", Keys.None, Start_stop);
+            }
 
         }
     }

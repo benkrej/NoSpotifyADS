@@ -42,6 +42,7 @@ namespace NoSpotifyADS_FORMS
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.deactivateHotkeyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -109,7 +110,8 @@ namespace NoSpotifyADS_FORMS
             // testToolStripMenuItem
             // 
             this.testToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.testToolStripMenuItem1});
+            this.testToolStripMenuItem1,
+            this.deactivateHotkeyToolStripMenuItem});
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
             this.testToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.testToolStripMenuItem.Text = "Settings";
@@ -121,6 +123,13 @@ namespace NoSpotifyADS_FORMS
             this.testToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.testToolStripMenuItem1.Text = "Autostart ON/OFF";
             this.testToolStripMenuItem1.Click += new System.EventHandler(this.testToolStripMenuItem1_Click);
+            // 
+            // deactivateHotkeyToolStripMenuItem
+            // 
+            this.deactivateHotkeyToolStripMenuItem.Name = "deactivateHotkeyToolStripMenuItem";
+            this.deactivateHotkeyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deactivateHotkeyToolStripMenuItem.Text = "Deactivate Hotkey";
+            this.deactivateHotkeyToolStripMenuItem.Click += new System.EventHandler(this.deactivateHotkeyToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -158,6 +167,7 @@ namespace NoSpotifyADS_FORMS
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem deactivateHotkeyToolStripMenuItem;
     }
 }
 

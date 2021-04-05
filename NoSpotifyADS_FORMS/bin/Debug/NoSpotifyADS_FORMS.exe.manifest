@@ -66,14 +66,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NoSpotifyADS_FORMS.exe" size="419824">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NoSpotifyADS_FORMS.exe" size="420336">
       <assemblyIdentity name="NoSpotifyADS_FORMS" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Cpym6qzpjznxJJdVeyblhTr79wT9eT08OsexRVT2GTQ=</dsig:DigestValue>
+        <dsig:DigestValue>yy9GCeAwsxki7njlfyslbYh0h5EUCDEx1/ADdOzVPHc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
