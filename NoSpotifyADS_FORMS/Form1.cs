@@ -17,17 +17,12 @@ namespace NoSpotifyADS_FORMS
         {
             InitializeComponent();
             
-            NHotkey.WindowsForms.HotkeyManager.Current.AddOrReplace("CLOSE", Keys.F7, Start_stop);
+            NHotkey.WindowsForms.HotkeyManager.Current.AddOrReplace("CLOSE", Keys.F7, Start_stop); //standard hotkey F7
            
         }
 
-        private void Form1_Load(object sender, EventArgs e) //test
+        private void Form1_Load(object sender, EventArgs e)
         {
-
-
-
-
-           // this.Resize += new EventHandler(this.HideToTray); //If window gets resize event HideToTray
 
         }
 
@@ -56,9 +51,9 @@ namespace NoSpotifyADS_FORMS
             System.Threading.Thread.Sleep(1000); //wait 1 sec to start spotify
 
             string spotify_path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"/AppData/Roaming/Spotify/Spotify.exe";
-            System.Diagnostics.Process.Start(spotify_path);
+            System.Diagnostics.Process.Start(spotify_path); //start spotify
             System.Threading.Thread.Sleep(1000);
-            sim.Keyboard.KeyPress(VirtualKeyCode.MEDIA_PLAY_PAUSE);
+            sim.Keyboard.KeyPress(VirtualKeyCode.MEDIA_PLAY_PAUSE); //simulate media_play_pause button to continue playing
 
 
         }
@@ -77,13 +72,13 @@ namespace NoSpotifyADS_FORMS
         private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Show();
-            this.WindowState = FormWindowState.Normal;
-            notifyIcon.Visible = false;
+            this.WindowState = FormWindowState.Normal; //if window is back to normal
+            notifyIcon.Visible = false; //dont show icon 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            button1.Text = "Enter Key";
+            button1.Text = "Enter Key"; //change button1.text to Enter Key
         }
 
 
@@ -93,10 +88,9 @@ namespace NoSpotifyADS_FORMS
             if (button1.Text == "Enter Key")
             {
                 Keys hotkey = e.KeyCode;
-                //MessageBox.Show("keypress: " + hotkey);
-                label2.Text = "Current Hotkey: " + (char)hotkey;
-                NHotkey.WindowsForms.HotkeyManager.Current.AddOrReplace("CLOSE", hotkey, Start_stop);
-                button1.Text = "Press to change Hotkey!";
+                label2.Text = "Current Hotkey: " + (char)hotkey; //change label to the current hotkey
+                NHotkey.WindowsForms.HotkeyManager.Current.AddOrReplace("CLOSE", hotkey, Start_stop); //Replace hotkey with new one
+                button1.Text = "Press to change Hotkey!"; //change button text back 
             }
         }
 
