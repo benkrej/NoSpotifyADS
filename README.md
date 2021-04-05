@@ -1,4 +1,4 @@
-# NoSpotifyADS_FORMS
+# NoSpotifyADS
 A small program that allows you to skip spotify ads by restarting spotify with a configurable hotkey.
 
 Download under releases - tags
