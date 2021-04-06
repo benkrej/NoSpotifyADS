@@ -16,4 +16,4 @@ functions in future versions:
 
 - save hotkey after restart 
 
-_If you want to update to a newer Version just replace the .exe file with the updated version and leave the .dll files as they are.
+__If you want to update to a newer Version just replace the .exe file with the updated version and leave the .dll files as they are.
