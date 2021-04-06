@@ -1,10 +1,9 @@
-﻿using System.Windows.Forms;
-using WindowsInput.Native;
-using WindowsInput;
+﻿using Microsoft.Win32;
 using System;
 using System.Diagnostics;
-using Microsoft.Win32;
-using System.IO;
+using System.Windows.Forms;
+using WindowsInput;
+using WindowsInput.Native;
 
 namespace NoSpotifyADS_FORMS
 {
@@ -12,8 +11,9 @@ namespace NoSpotifyADS_FORMS
 
     public partial class Form1 : Form
     {
-
+        bool customPath_enabled;
         bool hotkey_enabled = true;
+        string customPath;
         Keys global_hotkey;
         public Form1()
         {
@@ -52,9 +52,15 @@ namespace NoSpotifyADS_FORMS
 
 
             System.Threading.Thread.Sleep(1000); //wait 1 sec to start spotify
+            try
+            {
+                openSpotify();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("try to set a custom spotify Path");
+            }
 
-            string spotify_path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"/AppData/Roaming/Spotify/Spotify.exe";
-            System.Diagnostics.Process.Start(spotify_path); //start spotify
             System.Threading.Thread.Sleep(1000);
             sim.Keyboard.KeyPress(VirtualKeyCode.MEDIA_PLAY_PAUSE); //simulate media_play_pause button to continue playing
 
@@ -85,7 +91,6 @@ namespace NoSpotifyADS_FORMS
         }
 
 
-
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (button1.Text == "Enter Key")
@@ -94,7 +99,7 @@ namespace NoSpotifyADS_FORMS
                 if (global_hotkey != Keys.F12) //every Key except F12
                 {
 
-                   // MessageBox.Show(global_hotkey.ToString());
+                    // MessageBox.Show(global_hotkey.ToString());
                     label2.Text = "Current Hotkey: " + global_hotkey.ToString(); //change label to the current hotkey
                     if (hotkey_enabled == true) //if hotkey is enabled replace old hotkey with new one
                     {
@@ -119,8 +124,6 @@ namespace NoSpotifyADS_FORMS
         }
 
 
-
-
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -131,11 +134,6 @@ namespace NoSpotifyADS_FORMS
 
             string run = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
             string AppName = "NoSpotifyADS";
-
-
-
-
-
 
             RegistryKey startKey = Registry.LocalMachine.OpenSubKey(run, true);
             if (an_aus == true)
@@ -151,7 +149,7 @@ namespace NoSpotifyADS_FORMS
 
         }
 
-        private void testToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void testToolStripMenuItem1_Click(object sender, EventArgs e) //Autostart toggle
         {
             try
             {
@@ -178,7 +176,7 @@ namespace NoSpotifyADS_FORMS
 
             }
         }
-        
+
 
         private void testToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -204,34 +202,53 @@ namespace NoSpotifyADS_FORMS
 
         }
 
-        private void setHotkey(Keys hotkey_set) 
+        private void setHotkey(Keys hotkey_set)
         {
             NHotkey.WindowsForms.HotkeyManager.Current.AddOrReplace("CLOSE", hotkey_set, Start_stop);
         }
 
 
-
-
-
-        private void customSpotifyPathToolStripMenuItem_Click(object sender, EventArgs e) // DOESNT WORK WITH PROCESS.KILL YET
+        private void customSpotifyPathToolStripMenuItem_Click(object sender, EventArgs e) 
         {
-            /*OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = "c:\\";
-            openFileDialog.Filter = "exe files (*.exe) | *.exe";
-            openFileDialog.FilterIndex = 2;
-            openFileDialog.RestoreDirectory = true;
-
-            
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            if (customSpotifyPathToolStripMenuItem.Checked == false)
             {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.Filter = "exe files (*.exe) | *.exe";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
 
-                var filePath = openFileDialog.FileName;
-                MessageBox.Show(filePath.ToString());
-                customPath = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+
+                    customPath = openFileDialog.FileName;
+                    //MessageBox.Show(customPath.ToString());
+                    customPath_enabled = true;
+                    customSpotifyPathToolStripMenuItem.Checked = true;
+                }
+                
             }
-            */
-            MessageBox.Show("Custom path doesnt work yet!");
+            else
+            {
+                customSpotifyPathToolStripMenuItem.Checked = false;
+                customPath_enabled = false;
+            }
+            //MessageBox.Show("Custom path doesnt work yet!");
         }
-        
+
+        private void openSpotify()
+        {
+            if (customPath_enabled == false)
+                {
+                string spotify_path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"/AppData/Roaming/Spotify/Spotify.exe";
+                System.Diagnostics.Process.Start(spotify_path); //start spotify
+            }
+
+            else
+            {
+                System.Diagnostics.Process.Start(customPath); //start spotify with custom path
+            }
+        }
     }
 }
