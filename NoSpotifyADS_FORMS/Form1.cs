@@ -18,8 +18,8 @@ namespace NoSpotifyADS_FORMS
         public Form1()
         {
             InitializeComponent();
-            
-            NHotkey.WindowsForms.HotkeyManager.Current.AddOrReplace("CLOSE", Keys.F7, Start_stop); //standard hotkey F7
+
+            setHotkey(Keys.F7); //standard hotkey F7
 
 
         }
@@ -45,12 +45,12 @@ namespace NoSpotifyADS_FORMS
                 }
             }
 
-            catch(Exception)
+            catch (Exception)
             {
-                //If spotify is closed just start it
+                //If spotify is closed just return
             }
 
-                        
+
             System.Threading.Thread.Sleep(1000); //wait 1 sec to start spotify
 
             string spotify_path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"/AppData/Roaming/Spotify/Spotify.exe";
@@ -65,7 +65,7 @@ namespace NoSpotifyADS_FORMS
         private void HideToTray(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Minimized) //Check if window is minimized
-            {   
+            {
                 Hide(); //if it is hide it and
                 notifyIcon.Visible = true; //show in tray
             }
@@ -91,18 +91,35 @@ namespace NoSpotifyADS_FORMS
             if (button1.Text == "Enter Key")
             {
                 global_hotkey = e.KeyCode;
-                
-                MessageBox.Show(global_hotkey.ToString());
-                label2.Text = "Current Hotkey: " + global_hotkey.ToString(); //change label to the current hotkey
-                if (hotkey_enabled == true) //if hotkey is enabled replace old hotkey with new one
+                if (global_hotkey != Keys.F12) //every Key except F12
                 {
-                    
-                    NHotkey.WindowsForms.HotkeyManager.Current.AddOrReplace("CLOSE", global_hotkey, Start_stop); //Replace hotkey with new one
+
+                    MessageBox.Show(global_hotkey.ToString());
+                    label2.Text = "Current Hotkey: " + global_hotkey.ToString(); //change label to the current hotkey
+                    if (hotkey_enabled == true) //if hotkey is enabled replace old hotkey with new one
+                    {
+
+                        setHotkey(global_hotkey); //Replace hotkey with new one
+                    }
+
+
                 }
+
+                else //disabling F12 as hotkey
+                {
+                    MessageBox.Show("You cant use " + global_hotkey.ToString() + " as hotkey yet!");
+                }
+
                 button1.Text = "Press to change Hotkey!"; //change button text back 
+
+
+ 
             }
 
         }
+    
+
+        
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -155,16 +172,21 @@ namespace NoSpotifyADS_FORMS
             {
                 deactivateHotkeyToolStripMenuItem.Checked = false; //check deactivateHotkey checkbox
                 hotkey_enabled = true;
-                NHotkey.WindowsForms.HotkeyManager.Current.AddOrReplace("CLOSE", global_hotkey, Start_stop);
+                setHotkey(global_hotkey);
 
             }
-            else //if hotkey is enabled and click on deactivaeHotkey
+            else //if hotkey is enabled and click on deactivateHotkey
             {
                 deactivateHotkeyToolStripMenuItem.Checked = true; //uncheck deactivateHotkey checkbox
                 hotkey_enabled = false;
-                NHotkey.WindowsForms.HotkeyManager.Current.AddOrReplace("CLOSE", Keys.None, Start_stop);
+                setHotkey(Keys.None);
             }
 
+        }
+
+        private void setHotkey(Keys hotkey_set) 
+        {
+            NHotkey.WindowsForms.HotkeyManager.Current.AddOrReplace("CLOSE", hotkey_set, Start_stop);
         }
     }
 }
