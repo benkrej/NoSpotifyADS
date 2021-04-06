@@ -15,7 +15,3 @@ C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\bin\Debug\W
 C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\obj\Debug\NoSpotifyADS_FORMS.csproj.CopyComplete
 C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\obj\Debug\NoSpotifyADS_FORMS.exe
 C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\obj\Debug\NoSpotifyADS_FORMS.pdb
-C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\bin\Debug\NoSpotifyADS_FORMS.exe.manifest
-C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\bin\Debug\NoSpotifyADS_FORMS.application
-C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\obj\Debug\NoSpotifyADS_FORMS.exe.manifest
-C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\obj\Debug\NoSpotifyADS_FORMS.application

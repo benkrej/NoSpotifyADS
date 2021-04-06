@@ -94,7 +94,7 @@ namespace NoSpotifyADS_FORMS
                 if (global_hotkey != Keys.F12) //every Key except F12
                 {
 
-                    MessageBox.Show(global_hotkey.ToString());
+                   // MessageBox.Show(global_hotkey.ToString());
                     label2.Text = "Current Hotkey: " + global_hotkey.ToString(); //change label to the current hotkey
                     if (hotkey_enabled == true) //if hotkey is enabled replace old hotkey with new one
                     {
@@ -113,13 +113,13 @@ namespace NoSpotifyADS_FORMS
                 button1.Text = "Press to change Hotkey!"; //change button text back 
 
 
- 
+
             }
 
         }
-    
 
-        
+
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -128,9 +128,14 @@ namespace NoSpotifyADS_FORMS
 
         public static void AutoStartReg(bool an_aus) //set registry entry for autostart
         {
+
             string run = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
             string AppName = "NoSpotifyADS";
-            
+
+
+
+
+
 
             RegistryKey startKey = Registry.LocalMachine.OpenSubKey(run, true);
             if (an_aus == true)
@@ -141,24 +146,39 @@ namespace NoSpotifyADS_FORMS
             {
                 startKey.DeleteValue(AppName);
             }
-            
+
+
 
         }
 
         private void testToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (testToolStripMenuItem1.Checked == false)
+                {
 
-            if (testToolStripMenuItem1.Checked == false)
-            {
-                AutoStartReg(true);
-                testToolStripMenuItem1.Checked = true;
+
+
+                    AutoStartReg(true);
+                    testToolStripMenuItem1.Checked = true;
+
+
+
+                }
+                else
+                {
+                    AutoStartReg(false);
+                    testToolStripMenuItem1.Checked = false;
+                }
             }
-            else
+            catch (Exception)
             {
-                AutoStartReg(false);
-                testToolStripMenuItem1.Checked = false;
+                MessageBox.Show("Try to run program as administrator!");
+
             }
         }
+        
 
         private void testToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -188,5 +208,30 @@ namespace NoSpotifyADS_FORMS
         {
             NHotkey.WindowsForms.HotkeyManager.Current.AddOrReplace("CLOSE", hotkey_set, Start_stop);
         }
+
+
+
+
+
+        private void customSpotifyPathToolStripMenuItem_Click(object sender, EventArgs e) // DOESNT WORK WITH PROCESS.KILL YET
+        {
+            /*OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = "c:\\";
+            openFileDialog.Filter = "exe files (*.exe) | *.exe";
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.RestoreDirectory = true;
+
+            
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+
+                var filePath = openFileDialog.FileName;
+                MessageBox.Show(filePath.ToString());
+                customPath = true;
+            }
+            */
+            MessageBox.Show("Custom path doesnt work yet!");
+        }
+        
     }
 }

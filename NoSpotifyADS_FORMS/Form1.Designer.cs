@@ -43,6 +43,7 @@ namespace NoSpotifyADS_FORMS
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.deactivateHotkeyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customSpotifyPathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -111,7 +112,8 @@ namespace NoSpotifyADS_FORMS
             // 
             this.testToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.testToolStripMenuItem1,
-            this.deactivateHotkeyToolStripMenuItem});
+            this.deactivateHotkeyToolStripMenuItem,
+            this.customSpotifyPathToolStripMenuItem});
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
             this.testToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.testToolStripMenuItem.Text = "Settings";
@@ -130,6 +132,13 @@ namespace NoSpotifyADS_FORMS
             this.deactivateHotkeyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deactivateHotkeyToolStripMenuItem.Text = "Deactivate Hotkey";
             this.deactivateHotkeyToolStripMenuItem.Click += new System.EventHandler(this.deactivateHotkeyToolStripMenuItem_Click);
+            // 
+            // customSpotifyPathToolStripMenuItem
+            // 
+            this.customSpotifyPathToolStripMenuItem.Name = "customSpotifyPathToolStripMenuItem";
+            this.customSpotifyPathToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.customSpotifyPathToolStripMenuItem.Text = "Custom Spotify Path";
+            this.customSpotifyPathToolStripMenuItem.Click += new System.EventHandler(this.customSpotifyPathToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -168,6 +177,7 @@ namespace NoSpotifyADS_FORMS
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem deactivateHotkeyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem customSpotifyPathToolStripMenuItem;
     }
 }
 

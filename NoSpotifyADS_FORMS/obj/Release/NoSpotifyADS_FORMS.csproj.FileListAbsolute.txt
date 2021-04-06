@@ -1,6 +1,4 @@
 C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\bin\Release\NoSpotifyADS_FORMS.exe.config
-C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\bin\Release\NoSpotifyADS_FORMS.exe.manifest
-C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\bin\Release\NoSpotifyADS_FORMS.application
 C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\bin\Release\NoSpotifyADS_FORMS.exe
 C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\bin\Release\NoSpotifyADS_FORMS.pdb
 C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\bin\Release\NHotkey.dll
@@ -14,8 +12,6 @@ C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\obj\Release
 C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\obj\Release\NoSpotifyADS_FORMS.Properties.Resources.resources
 C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\obj\Release\NoSpotifyADS_FORMS.csproj.GenerateResource.cache
 C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\obj\Release\NoSpotifyADS_FORMS.csproj.CoreCompileInputs.cache
-C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\obj\Release\NoSpotifyADS_FORMS.exe.manifest
-C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\obj\Release\NoSpotifyADS_FORMS.application
 C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\obj\Release\NoSpotifyADS_FORMS.csproj.CopyComplete
 C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\obj\Release\NoSpotifyADS_FORMS.exe
 C:\Users\Benjamin\source\repos\NoSpotifyADS_FORMS\NoSpotifyADS_FORMS\obj\Release\NoSpotifyADS_FORMS.pdb
