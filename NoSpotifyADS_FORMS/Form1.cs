@@ -91,9 +91,12 @@ namespace NoSpotifyADS_FORMS
             if (button1.Text == "Enter Key")
             {
                 global_hotkey = e.KeyCode;
-                label2.Text = "Current Hotkey: " + (char)global_hotkey; //change label to the current hotkey
+                
+                MessageBox.Show(global_hotkey.ToString());
+                label2.Text = "Current Hotkey: " + global_hotkey.ToString(); //change label to the current hotkey
                 if (hotkey_enabled == true) //if hotkey is enabled replace old hotkey with new one
                 {
+                    
                     NHotkey.WindowsForms.HotkeyManager.Current.AddOrReplace("CLOSE", global_hotkey, Start_stop); //Replace hotkey with new one
                 }
                 button1.Text = "Press to change Hotkey!"; //change button text back 
@@ -112,7 +115,7 @@ namespace NoSpotifyADS_FORMS
             string AppName = "NoSpotifyADS";
             
 
-                RegistryKey startKey = Registry.LocalMachine.OpenSubKey(run, true);
+            RegistryKey startKey = Registry.LocalMachine.OpenSubKey(run, true);
             if (an_aus == true)
             {
                 startKey.SetValue(AppName, Application.ExecutablePath.ToString());

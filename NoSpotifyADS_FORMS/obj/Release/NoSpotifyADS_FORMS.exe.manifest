@@ -66,14 +66,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NoSpotifyADS_FORMS.exe" size="419312">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NoSpotifyADS_FORMS.exe" size="420336">
       <assemblyIdentity name="NoSpotifyADS_FORMS" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ar9M9PtDJ7uwV0GKqgEwe823fNEORzGnyDIYfFe6wDE=</dsig:DigestValue>
+        <dsig:DigestValue>rgLCMXoB1odeDtlhb6rSCpH9S8wQAXyXAsIQCopLxnM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -89,13 +89,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="NoSpotifyADS_FORMS.exe.config" size="234">
+  <file name="NoSpotifyADS_FORMS.exe.config" size="320">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>PcKz7eADFF3VPsAOId3cf5mvnveMFAEHYkAHMe6OdLk=</dsig:DigestValue>
+      <dsig:DigestValue>44W+RKdjz10ts9cOjymSv+/B50Rvd4T09y54udCGL9I=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
