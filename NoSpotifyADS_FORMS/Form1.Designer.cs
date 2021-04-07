@@ -38,12 +38,13 @@ namespace NoSpotifyADS_FORMS
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.deactivateHotkeyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customSpotifyPathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.defaultSpotifyPathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +67,7 @@ namespace NoSpotifyADS_FORMS
             this.label1.Size = new System.Drawing.Size(196, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "No SpotifyADS";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+
             // 
             // button1
             // 
@@ -88,23 +89,13 @@ namespace NoSpotifyADS_FORMS
             this.label2.TabIndex = 2;
             this.label2.Text = "Current Hotkey: F7";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(16, 168);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(118, 16);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "by Benjamin Krejci";
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.testToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(352, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(254, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -113,7 +104,9 @@ namespace NoSpotifyADS_FORMS
             this.testToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.testToolStripMenuItem1,
             this.deactivateHotkeyToolStripMenuItem,
-            this.customSpotifyPathToolStripMenuItem});
+            this.customSpotifyPathToolStripMenuItem,
+            this.defaultSpotifyPathToolStripMenuItem,
+            this.aboutToolStripMenuItem});
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
             this.testToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.testToolStripMenuItem.Text = "Settings";
@@ -122,14 +115,14 @@ namespace NoSpotifyADS_FORMS
             // testToolStripMenuItem1
             // 
             this.testToolStripMenuItem1.Name = "testToolStripMenuItem1";
-            this.testToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.testToolStripMenuItem1.Size = new System.Drawing.Size(183, 22);
             this.testToolStripMenuItem1.Text = "Autostart ON/OFF";
             this.testToolStripMenuItem1.Click += new System.EventHandler(this.testToolStripMenuItem1_Click);
             // 
             // deactivateHotkeyToolStripMenuItem
             // 
             this.deactivateHotkeyToolStripMenuItem.Name = "deactivateHotkeyToolStripMenuItem";
-            this.deactivateHotkeyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deactivateHotkeyToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.deactivateHotkeyToolStripMenuItem.Text = "Deactivate Hotkey";
             this.deactivateHotkeyToolStripMenuItem.Click += new System.EventHandler(this.deactivateHotkeyToolStripMenuItem_Click);
             // 
@@ -140,12 +133,25 @@ namespace NoSpotifyADS_FORMS
             this.customSpotifyPathToolStripMenuItem.Text = "Custom Spotify Path";
             this.customSpotifyPathToolStripMenuItem.Click += new System.EventHandler(this.customSpotifyPathToolStripMenuItem_Click);
             // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // defaultSpotifyPathToolStripMenuItem
+            // 
+            this.defaultSpotifyPathToolStripMenuItem.Name = "defaultSpotifyPathToolStripMenuItem";
+            this.defaultSpotifyPathToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.defaultSpotifyPathToolStripMenuItem.Text = "Default Spotify Path";
+            this.defaultSpotifyPathToolStripMenuItem.Click += new System.EventHandler(this.defaultSpotifyPathToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 277);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(254, 231);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
@@ -154,6 +160,7 @@ namespace NoSpotifyADS_FORMS
             this.KeyPreview = true;
             this.Name = "Form1";
             this.Text = "NoSpotifyADS";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.saveSettings);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.Resize += new System.EventHandler(this.HideToTray);
@@ -172,12 +179,13 @@ namespace NoSpotifyADS_FORMS
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem deactivateHotkeyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customSpotifyPathToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem defaultSpotifyPathToolStripMenuItem;
     }
 }
 

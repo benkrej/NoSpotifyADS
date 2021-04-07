@@ -22,5 +22,53 @@ namespace NoSpotifyADS_FORMS.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string customPath {
+            get {
+                return ((string)(this["customPath"]));
+            }
+            set {
+                this["customPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool customPath_enabled {
+            get {
+                return ((bool)(this["customPath_enabled"]));
+            }
+            set {
+                this["customPath_enabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public string savedHotkey {
+            get {
+                return ((string)(this["savedHotkey"]));
+            }
+            set {
+                this["savedHotkey"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool hotkey_enabled {
+            get {
+                return ((bool)(this["hotkey_enabled"]));
+            }
+            set {
+                this["hotkey_enabled"] = value;
+            }
+        }
     }
 }

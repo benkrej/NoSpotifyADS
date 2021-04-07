@@ -5,21 +5,25 @@ using System.Windows.Forms;
 using WindowsInput;
 using WindowsInput.Native;
 
+
 namespace NoSpotifyADS_FORMS
 {
 
 
     public partial class Form1 : Form
     {
+        string version = "v1.1";
         bool customPath_enabled;
         bool hotkey_enabled = true;
         string customPath;
+        string spotify_path;
         Keys global_hotkey;
         public Form1()
         {
             InitializeComponent();
 
-            setHotkey(Keys.F7); //standard hotkey F7
+            loadSettings(); //load settings from config file
+
 
 
         }
@@ -88,6 +92,7 @@ namespace NoSpotifyADS_FORMS
         private void button1_Click(object sender, EventArgs e)
         {
             button1.Text = "Enter Key"; //change button1.text to Enter Key
+            setHotkey(Keys.None); //disable hotkey for now to avoid weird behaviour
         }
 
 
@@ -95,12 +100,13 @@ namespace NoSpotifyADS_FORMS
         {
             if (button1.Text == "Enter Key")
             {
+
                 global_hotkey = e.KeyCode;
                 if (global_hotkey != Keys.F12) //every Key except F12
                 {
 
                     // MessageBox.Show(global_hotkey.ToString());
-                    label2.Text = "Current Hotkey: " + global_hotkey.ToString(); //change label to the current hotkey
+                    
                     if (hotkey_enabled == true) //if hotkey is enabled replace old hotkey with new one
                     {
 
@@ -110,12 +116,11 @@ namespace NoSpotifyADS_FORMS
 
                 }
 
-                else //disabling F12 as hotkey
+                if (global_hotkey == Keys.F12) //disabling F12 as hotkey
                 {
-                    MessageBox.Show("You cant use " + global_hotkey.ToString() + " as hotkey yet!");
+                    MessageBox.Show("You cant use " + global_hotkey.ToString() + " as hotkey!");
                 }
-
-                button1.Text = "Press to change Hotkey!"; //change button text back 
+                    button1.Text = "Press to change Hotkey!"; //change button text back 
 
 
 
@@ -124,10 +129,7 @@ namespace NoSpotifyADS_FORMS
         }
 
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
 
         public static void AutoStartReg(bool an_aus) //set registry entry for autostart
         {
@@ -156,12 +158,8 @@ namespace NoSpotifyADS_FORMS
                 if (testToolStripMenuItem1.Checked == false)
                 {
 
-
-
                     AutoStartReg(true);
                     testToolStripMenuItem1.Checked = true;
-
-
 
                 }
                 else
@@ -185,19 +183,18 @@ namespace NoSpotifyADS_FORMS
 
         private void deactivateHotkeyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (deactivateHotkeyToolStripMenuItem.Checked == true) //if hotkey is disabled and click on deactivaeHotkey
+            if (deactivateHotkeyToolStripMenuItem.Checked == true) //if hotkey is disabled and click on deactivateHotkey
 
             {
-                deactivateHotkeyToolStripMenuItem.Checked = false; //check deactivateHotkey checkbox
-                hotkey_enabled = true;
-                setHotkey(global_hotkey);
+                deactivateHotkey(false); //enable hotkey
+                 
+
 
             }
             else //if hotkey is enabled and click on deactivateHotkey
             {
-                deactivateHotkeyToolStripMenuItem.Checked = true; //uncheck deactivateHotkey checkbox
-                hotkey_enabled = false;
-                setHotkey(Keys.None);
+                deactivateHotkey(true); //disable hotkey
+
             }
 
         }
@@ -205,10 +202,12 @@ namespace NoSpotifyADS_FORMS
         private void setHotkey(Keys hotkey_set)
         {
             NHotkey.WindowsForms.HotkeyManager.Current.AddOrReplace("CLOSE", hotkey_set, Start_stop);
+            Properties.Settings.Default.savedHotkey = hotkey_set.ToString();
+            label2.Text = "Current Hotkey: " + global_hotkey.ToString(); //change label to the current hotkey
         }
 
 
-        private void customSpotifyPathToolStripMenuItem_Click(object sender, EventArgs e) 
+        private void customSpotifyPathToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (customSpotifyPathToolStripMenuItem.Checked == false)
             {
@@ -226,8 +225,9 @@ namespace NoSpotifyADS_FORMS
                     //MessageBox.Show(customPath.ToString());
                     customPath_enabled = true;
                     customSpotifyPathToolStripMenuItem.Checked = true;
+                    Properties.Settings.Default.customPath = customPath;
                 }
-                
+
             }
             else
             {
@@ -240,8 +240,8 @@ namespace NoSpotifyADS_FORMS
         private void openSpotify()
         {
             if (customPath_enabled == false)
-                {
-                string spotify_path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"/AppData/Roaming/Spotify/Spotify.exe";
+            {
+                defaultPath();
                 System.Diagnostics.Process.Start(spotify_path); //start spotify
             }
 
@@ -250,5 +250,78 @@ namespace NoSpotifyADS_FORMS
                 System.Diagnostics.Process.Start(customPath); //start spotify with custom path
             }
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Version: " + version + "\nBenjamin Krejci 2021");
+        }
+
+        private void loadSettings()
+        {
+            if (Properties.Settings.Default.customPath_enabled == true) //check if the user entered a custom path before
+            {
+                customSpotifyPathToolStripMenuItem.Checked = true;
+                customPath_enabled = true;
+                customPath = Properties.Settings.Default.customPath;
+            }
+
+            global_hotkey = (Keys)Enum.Parse(typeof(Keys), Properties.Settings.Default.savedHotkey, true); //convert hotkey stored as "string" to keys
+            setHotkey(global_hotkey);
+
+            hotkey_enabled = Properties.Settings.Default.hotkey_enabled;
+            bool testvariable; 
+            if (hotkey_enabled == true) //revert true and false
+            {
+                testvariable = false;
+            }
+            else
+            {
+                testvariable = true;
+            }
+            deactivateHotkey(testvariable);
+        }
+
+        private void saveSettings(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.customPath_enabled = customPath_enabled;
+            Properties.Settings.Default.hotkey_enabled = hotkey_enabled;
+            Properties.Settings.Default.savedHotkey = global_hotkey.ToString();
+            Properties.Settings.Default.Save();
+
+        }
+
+        private void deactivateHotkey(bool deactivateHotkey_bool)
+        {
+            if (deactivateHotkey_bool == true)
+            {
+                hotkey_enabled = false;
+                setHotkey(Keys.None);
+                deactivateHotkeyToolStripMenuItem.Checked = true;
+            }
+            else
+            {
+                hotkey_enabled = true;
+                setHotkey(global_hotkey);
+                deactivateHotkeyToolStripMenuItem.Checked = false;
+            }
+        }
+        private void defaultPath()
+        {
+            spotify_path = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"/AppData/Roaming/Spotify/Spotify.exe";
+            customPath_enabled = false;
+            customSpotifyPathToolStripMenuItem.Checked = false;
+        }
+
+        private void defaultSpotifyPathToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            defaultPath();
+
+        }
+
+        private void debugMessage(string message)
+        {
+            MessageBox.Show(message);
+        }
+
     }
 }
