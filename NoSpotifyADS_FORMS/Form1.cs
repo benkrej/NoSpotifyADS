@@ -12,7 +12,7 @@ namespace NoSpotifyADS_FORMS
 
     public partial class Form1 : Form
     {
-        string version = "v1.1";
+        string version = "v1.2";
         bool customPath_enabled;
         bool hotkey_enabled = true;
         string customPath;
