@@ -6,7 +6,9 @@ Download: https://github.com/benkrej/NoSpotifyADS/releases/download/v1.2/Release
 
 # NOTE: v1.2
 - added config file (settings get saved after a restart)
-
+# v1.3
+- updated icon
+- start minimized
 
 
 
