@@ -4,9 +4,10 @@ A small program that allows you to skip spotify ads by restarting spotify with a
 Download: https://github.com/benkrej/NoSpotifyADS/releases/download/v1.2/Release_v1.2.zip
 ----
 
-# NOTE: v1.2
+# NOTE: 
+v1.2
 - added config file (settings get saved after a restart)
-# v1.3
+v1.3
 - updated icon
 - start minimized
 
