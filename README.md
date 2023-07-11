@@ -2,8 +2,6 @@
 A small program that allows you to skip spotify ads by restarting spotify with a configurable hotkey.
 
 ----
-
-# NOTE: 
 # v1.2
 
 - added config file (settings get saved after a restart)
