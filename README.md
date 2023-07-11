@@ -11,8 +11,3 @@ A small program that allows you to skip spotify ads by restarting spotify with a
 
 - updated icon
 - start minimized
-
-
-
-
-# If you want to update to a newer Version just replace the .exe file with the updated version and leave the .dll files as they are.
