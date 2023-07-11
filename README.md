@@ -1,5 +1,6 @@
 # NoSpotifyADS for Windows
 A small program that allows you to skip spotify ads by restarting spotify with a configurable hotkey.
+(This was my first attempt at C#)
 
 ----
 # v1.2
